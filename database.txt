@@ -1,0 +1,3 @@
+{"Username":"Kristian00","Password":"password3","Friends":{"Stiliyan00":{"reasons":["We bought OS\u0027 tabbac--34.0"],"amount":-17.0}},"groups":[]}
+{"Username":"Dimitar00","Password":"password5","Friends":{"Stiliyan00":{"reasons":["We bought OS\u0027 tabbac--34.0"],"amount":-17.0}},"groups":[]}
+{"Username":"Stiliyan00","Password":"password1","Friends":{"Dimitar00":{"reasons":[],"amount":0.0},"Kristian00":{"reasons":[],"amount":0.0}},"groups":[{"Group":"Hookah 18","Users":{"Dimitar00":17.0,"Kristian00":17.0},"reasons":["We bought OS tabbac-51.0BGN"]}]}

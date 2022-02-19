@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"bg.sofia.uni.fmi.mjt.splitwise"},{"l":"bg.sofia.uni.fmi.mjt.splitwise.server"},{"l":"bg.sofia.uni.fmi.mjt.splitwise.server.command"},{"l":"bg.sofia.uni.fmi.mjt.splitwise.user"},{"l":"bg.sofia.uni.fmi.mjt.splitwise.user.exceptions"}];updateSearchResults();
