@@ -2,8 +2,8 @@ package bg.sofia.uni.fmi.mjt.splitwise.server;
 
 import bg.sofia.uni.fmi.mjt.splitwise.DefaultSplitWise;
 import bg.sofia.uni.fmi.mjt.splitwise.SplitWise;
-import bg.sofia.uni.fmi.mjt.splitwise.server.command.Command;
-import bg.sofia.uni.fmi.mjt.splitwise.server.command.DefaultCommand;
+import bg.sofia.uni.fmi.mjt.splitwise.command.Command;
+import bg.sofia.uni.fmi.mjt.splitwise.command.DefaultCommand;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -24,7 +24,7 @@ public class SplitWiseServer {
     private static final int BUFFER_SIZE = 1024;
     private static final String SERVER_HOST = "localhost";
 
-    private final boolean isStarted = true;
+    private boolean isStarted = true;
 
     private final int port;
     private final ByteBuffer messageBuffer;
@@ -85,12 +85,22 @@ public class SplitWiseServer {
                 }
             }
         } catch (IOException e) {
+            this.stop();
             splitWise.storeUsersData();
             System.err.println("There is a problem with the server socket: " + e.getMessage());
             System.err.println(e);
         }
 
         System.out.println("Server stopped");
+    }
+
+    /**
+     * Stop the server
+     *
+     * @throws IOException
+     */
+    public void stop() {
+        isStarted = false;
     }
 
     private void handleKeyIsReadable(SelectionKey key, ByteBuffer buffer) throws IOException {
