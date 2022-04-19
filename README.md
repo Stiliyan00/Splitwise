@@ -123,3 +123,42 @@ Splitwise цели улесняване на поделянето на смет�
     You owe Alex 150 LV [Surprise trip for mom and dad]
     ***************************
     ```
+    
+    
+  ## Файлова артектура:
+   src
+    └─ bg.sofia.uni.fmi.mjt.splitwise.
+        ├─ client
+        |     ├─ SplitWiseUser.java
+        |     └─ UserRunnable.java
+        |       
+        ├─ command
+        |     ├─ Command.java
+        |     └─ DefaultCommand.java
+        |
+        ├─ server
+        |     └─ SplitWiseServer.java
+        |
+        ├─ user
+        |     ├─ exceptions
+        |     |       ├─ GroupNotFoundException.java
+        |     |       ├─ InvalidPasswordException.java
+        |     |       ├─ InvalidUsernameException.java
+        |     |       ├─ UnableToCreateGroupException.java
+        |     |       ├─ UsernameAlreadyExistsException.java
+        |     |       └─ UserNotFoundException.java
+        |     |
+        |     ├─ Group.java
+        |     ├─ StandardPayment.java
+        |     ├─ StandardUser.java
+        |     └─ User.java
+        |
+        ├─ SplitWise.java
+        └─ DefaultSplitWise.java
+    test
+    └─ bg.sofia.uni.fmi.mjt.splitwise
+        ├─ user
+        |    └─ UserTest.java
+        |
+        └─ SplitWiseTest.java
+
