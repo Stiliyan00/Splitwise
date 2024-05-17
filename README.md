@@ -2,14 +2,14 @@
 Course Project for Modern Java Technologies 2022 at FMI Sofia
 
 
-## Кратко описание:
-Клиент-сървър приложение с функционалност, наподобяваща тази на [Splitwise](https://www.splitwise.com/), което приема потребителски команди, изпраща ги за обработка на сървъра, приема отговора му и го предоставя на потребителя в четим формат.
+## Brief Description:
+A client-server application with functionality resembling that of [Splitwise](https://www.splitwise.com/) that accepts user commands, sends them to the server for processing, accepts its response, and provides it to the user in a readable format.
 
-Splitwise цели улесняване на поделянето на сметки между приятели и съквартиранти и намаляване на споровете от тип "само аз купувам бира в това общежитие".
+Splitwise aims to make it easier to share bills between friends and roommates and reduce "only I buy beer in this dorm" type arguments.
 
-### Функционалности
+### Functionalities
 
-- Регистрация на потребител с username и password; Регистрираните потребители се пазят във файл при сървъра - той служи като база от данни. При спиране и повторно пускане, сървърът може да зареди в паметта си вече регистрираните потребители.
+- User registration with username and password; Registered users are stored in a file at the server - it serves as a database. On shutdown and restart, the server can load the already registered users into its memory.
         
         $ signup <username> <password>
        
@@ -18,34 +18,34 @@ Splitwise цели улесняване на поделянето на смет�
         
         $ login <username> <password>
               
-- За удобството на потребителя е предоставена и команда, която да му показва всички налични команди, който може да използва в конкретния момент:
+- For the convenience of the user, a command is also provided to show him all available commands he can use at that particular moment:
         
         $ help
  
-- Регистриран потребител може да:
-    - добавя вече регистрирани потребители във Friend List на база техния username. Например:
+- A registered user can:
+    - add already registered users to the Friend List based on their username. For example:
         ```bash
         $ add-friend <username>
         ```
-    - създава група, състояща се от няколко, вече регистрирани, потребители:
+    - creates a group consisting of several, already registered users:
 
         ```bash
         $ create-group <group_name> <username> <username> ... <username>
         ```
-        Групите се създават от един потребител, като всяка група включва трима или повече потребители.
+        Groups are created by a single user, and each group includes three or more users.
 
-    - добавя сума, платена от него, в задълженията на:
-        - друг потребител от friend list-a му:
+    - adds the amount paid by him to the liabilities of:
+        - another user from his friend list:
         ```bash
         $ split <amount> <username> <reason_for_payment>
         ```
-        - група, в която участва:
+        - a group in which he participates:
 
         ```bash
         $ split-group <amount> <group_name> <reason_for_payment>
         ```
 
-    - получава своя статус - сумите, които той дължи на приятелите си и в групите си и сумите, които дължат на него. Например:
+    - gets status - the amounts he owes his friends and in his groups and the amounts they owe him. For example:
         ```bash
         $ get-status
         Friends:
@@ -57,16 +57,16 @@ Splitwise цели улесняване на поделянето на смет�
         - Hristo Hristov (ico_h): Owes you 25 LV
         - Harry Gerogiev (harryharry): You owe 5 LV
         ```
-        Визуализират се групите, при които има "неуредени сметки".
+        Groups with "outstanding accounts" are visualized.
 
 
-- Нововъведена сума се дели поравно между всички участници в групата или наполовина, ако се дели с потребител от Friend List-a.
+- A newly entered amount is divided equally between all group members or in half if shared with a Friend List user.
 
-- Когато един потребител А дължи пари на друг потребител B, задължението може да бъде "погасено" само от потребител B.
+- When one user A owes money to another user B, the debt can only be "settled" by user B.
     ```bash
     $ payed <amount> <username>
     ```
-    Например:
+    For example:
     ```bash
     $ get-status
     Friends:
@@ -83,7 +83,7 @@ Splitwise цели улесняване на поделянето на смет�
     * Hristo Hristov (ico_h): You owe 5 LV
     ```
 
-- Когато един потребител А дължи на потребител B сума (например 5$), но преди да ги върне на B добави друга сума, която той е платил (например 5$), тогава дължимите суми и на двамата се преизчисляват (дължимата сума на А ще стане 2.50$, B все още не дължи нищо, но има да взима 2.50$).
+- When user A owes user B an amount (e.g. $5), but adds another amount that he paid (e.g. $5) before returning it to B, then the amounts owed to both are recalculated (the amount owed to A will become $2.50, B still owes nothing but has $2.50 to collect).
     ```bash
     $ get-status
     Friends:
@@ -100,8 +100,8 @@ Splitwise цели улесняване на поделянето на смет�
     * Hristo Hristov (ico_h): You owe 2.50 LV
     ```
 
-- При всяко влизане на потребителя в системата, той получава известия, ако негови приятели са добавяли суми или "погасявали" дългове.
-Например:
+- Each time a user logs in, they receive notifications if their friends have added amounts or "paid off" debts.
+For example:
     ```bash
     $ login alex alexslongpassword
     Successful login!
@@ -124,7 +124,7 @@ Splitwise цели улесняване на поделянето на смет�
     ***************************
     ```
     
-   ## Файлова артектура:
+   ## File Architecture:
     ```bash
            src
             └─ bg.sofia.uni.fmi.mjt.splitwise.
